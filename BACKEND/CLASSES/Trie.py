@@ -2,12 +2,7 @@ class TrieNode:
     def __init__(self):
         self.children = {}
         self.end = False
-
-class Trie(object):
-
-    def __init__(self):
-        self.root = TrieNode()
-
+    
     def insert(self, word):
         """
         :type word: str
@@ -20,6 +15,9 @@ class Trie(object):
                 r.children[c] = TrieNode()
             r = r.children[c]
         r.end = True
+    
+    def print_trie(self):
+        print(self.children)
 
 
     def search(self, word):
@@ -48,3 +46,5 @@ class Trie(object):
                 return False
             r = r.children[c]
         return True
+
+    

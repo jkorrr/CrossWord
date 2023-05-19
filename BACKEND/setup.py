@@ -32,8 +32,8 @@ def generate_pattern(grid):
 
     return grid
 
-grid = make_grid(10)
-print(generate_pattern(grid))
+# grid = make_grid(10)
+# print(generate_pattern(grid))
 
 
 
