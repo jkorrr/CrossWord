@@ -14,7 +14,8 @@ class Trie(object):
         :rtype: None
         """
         r = self.root
-        for c in word:
+        for i in range(len(word)):
+            c = word[i]
             if c not in r.children:
                 r.children[c] = TrieNode()
             r = r.children[c]
@@ -27,7 +28,8 @@ class Trie(object):
         :rtype: bool
         """
         r = self.root
-        for c in word:
+        for i in range(len(word)):
+            c = word[i]
             if c not in r.children:
                 return False
             r = r.children[c]
@@ -40,7 +42,8 @@ class Trie(object):
         :rtype: bool
         """
         r = self.root
-        for c in prefix:
+        for i in range(len(prefix)):
+            c = prefix[i]
             if c not in r.children:
                 return False
             r = r.children[c]

@@ -3,9 +3,9 @@ from CLASSES.Reflections import Reflection
 
 def make_grid(length):
     grid = []
-    for i in range(length):
+    for _ in range(length):
         row = []
-        for j in range(length):
+        for _ in range(length):
             row.append(["w"])
         grid.append(row)
     return grid
