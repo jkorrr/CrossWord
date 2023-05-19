@@ -1,6 +1,5 @@
-# from BACKEND.pre_process import *
 import random
-# data, diff = process_data()
+from CLASSES.Reflections import Reflection
 
 def make_grid(length):
     grid = []
@@ -11,32 +10,25 @@ def make_grid(length):
         grid.append(row)
     return grid
 
-def rotate_180(grid):
-    n = len(grid)
-    rotated_grid = [[0 for _ in range(n)] for _ in range(n)]
-    for i in range(n):
-        for j in range(n):
-            rotated_grid[i][j] = grid[n - i - 1][n - j - 1]
-    return rotated_grid
-
 def generate_pattern(grid):
     n = len(grid) // 2
-    for _ in range(3):
+    p = random.randint(0, 4)
+    for _ in range(p):
         x = random.randint(0, n - 1)
         y = random.randint(0, n - 1)
         for i in range(x):
             for j in range(y):
                 grid[i][j] = "BLANK"  
     
-    temp_grid = rotate_180(grid)
+    temp_grid = Reflection.rotate_180(grid)
     
-    for _ in range(3):
+    for _ in range(p):
         x = random.randint(0, n - 1)
         y = random.randint(0, n - 1)
         for i in range(x):
             for j in range(y):
                 temp_grid[i][j] = "BLANK" 
-    grid = rotate_180(grid)
+    grid = Reflection.rotate_180(grid)
 
     return grid
 
