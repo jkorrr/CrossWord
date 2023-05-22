@@ -13,6 +13,7 @@ n = random.randint(5, 10)
 data, diff = process_data()
 grid = make_grid(n)
 grid = generate_pattern(grid)
+print(np.shape(grid))
 
 root = Trie()
 words = list(data.keys())
@@ -36,7 +37,7 @@ def generate_random_letters(length):
 
 def make_crossword(grid):
     g = Graph(n)
-    grid_copy = np.copy(grid)
+    # grid_copy = np.copy(grid)
 
     word_len, idx, indices = find_longest_empty_length(grid)
     random_word = generate_random_letters(word_len)
@@ -51,4 +52,8 @@ def make_crossword(grid):
         grid[x][y] = word[0]
         word = word[1:]
         i += 1
+    return grid
+
+# x = make_crossword(grid)
+# print(x)
 
