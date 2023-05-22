@@ -5,15 +5,16 @@ from CLASSES.Graph import Graph
 from CLASSES.Trie import Trie
 import numpy as np
 
-ALPHABET = ["a", "b", "c", "d", "e", "f" "g", "h", "i", "j", "k", "l", "m",
-            "n", "o", "p", "q", "r", "s", "t", "u" "v", "w", "x", "y", "z"]
+ALPHABET = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+            "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 n = random.randint(5, 10)
 
 data, diff = process_data()
 grid = make_grid(n)
 grid = generate_pattern(grid)
-print(np.shape(grid))
+
+# print(np.shape(grid))
 
 root = Trie()
 words = list(data.keys())
@@ -54,6 +55,6 @@ def make_crossword(grid):
         i += 1
     return grid
 
-# x = make_crossword(grid)
-# print(x)
+x = make_crossword(grid)
+print(x)
 

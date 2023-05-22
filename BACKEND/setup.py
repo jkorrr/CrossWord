@@ -7,7 +7,7 @@ def make_grid(length):
     for _ in range(length):
         row = []
         for _ in range(length):
-            row.append([""])
+            row.append("")
         grid.append(row)
     return grid
 
@@ -19,7 +19,7 @@ def generate_pattern(grid):
         y = random.randint(0, n - 1)
         for i in range(x):
             for j in range(y):
-                grid[i][j] = "BLANK"  
+                grid[i][j] = "BLANK"
     
     temp_grid = Reflection.rotate_180(grid)
     
@@ -28,12 +28,11 @@ def generate_pattern(grid):
         y = random.randint(0, n - 1)
         for i in range(x):
             for j in range(y):
-                temp_grid[i][j] = "BLANK" 
+                temp_grid[i][j] = "BLANK"
     grid = Reflection.rotate_180(temp_grid)
     return grid
 
 def find_longest_empty_length(grid):
-    grid = np.array(grid)
     grid_t = np.transpose(grid)
 
     def find_empty_row(grid):
