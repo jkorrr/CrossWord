@@ -46,6 +46,17 @@ class Trie(object):
             r = r.children[c]
         return True
     
-    def print_trie(self):
-        r = self.root
-        print(r.children)
+    def find_words(self, available_letters, length):
+        r = self.root 
+        def dfs(node, word, remaining_length):
+            if remaining_length == 0:
+                if node.end:
+                    matching.append(word)
+                return 
+            for char, child in node.children.items():
+                if char == '*' or char == available_letters[length - remaining_length - 1]:
+                    dfs(child, word + char, remaining_length - 1)       
+        matching = []
+        dfs(r, '', length)
+        return matching
+
