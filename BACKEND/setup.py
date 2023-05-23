@@ -78,5 +78,18 @@ def find_longest_empty_length(grid):
     else:
         return find_empty_col(grid_t)
 
+def find_all_empty_indices(grid):
+    indices = []
+    i = 0
+    j = 0
+    for row in grid:
+        for cell in row:
+            if cell == "":
+                indices.append([i, j])
+                j += 1
+        i += 1
+        j = 0
+    return indices
+
 # grid = make_grid(10)
 # print(generate_pattern(grid))

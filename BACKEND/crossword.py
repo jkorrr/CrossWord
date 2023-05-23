@@ -18,9 +18,9 @@ grid = make_grid(n)
 grid = generate_pattern(grid)
 
 root = Trie()
-words = list(data.keys())
+dictionary = list(data.keys())
 
-for word in words:
+for word in dictionary:
     if type(word) is str:
         root.insert(word.lower())
 
@@ -51,9 +51,31 @@ def check_valid_word(grid, indices):
     word = ""
     for x, y in indices:
         word += grid[x][y]
-    if word in words:
+    if word in dictionary:
         return True
     return False
 
+def is_valid_grid(grid):
+    grid_t = np.transpose(grid)
+    def find_words(grid):
+        words = []
+        for row in grid:
+            word = ""
+        for cell in row:
+            if cell in ALPHABET:
+                word += cell
+            elif cell == "BLANK":
+                word = ""
+        return words
+    
+    total_words = find_words(grid) + find_words(grid_t)
+
+    for word in total_words:
+        if word not in dictionary:
+            return False
+    return True 
+
 def make_crossword(grid):
+    grid_t = np.transpose(grid)
     word, grid = add_first_word(grid)
+
