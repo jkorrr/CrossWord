@@ -55,11 +55,13 @@ class Trie(object):
                     matching.append(word)
                 return 
             for char, child in node.children.items():
-                if char == '*' or char == available_letters[length - remaining_length - 1]:
+                if char == available_letters[length - remaining_length] or available_letters[length - remaining_length] == '*':
                     dfs(child, word + char, remaining_length - 1, matching)       
         dfs(r, '', length, matching)
         return matching
 
+# testing
+'''
 dictionary = ['python', 'java', 'ruby', 'perl', 'swift', 'rust']
 available_letters = ['*', '*', 't', '*', 'o', 'n']
 word_length = 6
@@ -71,3 +73,4 @@ for word in dictionary:
 
 matching_words = r.find_words(available_letters, word_length)
 print(matching_words)
+'''

@@ -58,7 +58,7 @@ def find_longest_empty_length(grid):
         
         max_row_len = max(max_row_lens)
         row_idx = max_row_lens.index(max_row_len)
-        indices = all_empty_indices[max_row_len]
+        indices = all_empty_indices[row_idx]
 
         return max_row_len, row_idx, indices
     
@@ -80,10 +80,3 @@ def find_longest_empty_length(grid):
 
 # grid = make_grid(10)
 # print(generate_pattern(grid))
-
-
-
-
-
-
-        

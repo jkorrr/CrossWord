@@ -54,8 +54,8 @@ def make_crossword(grid):
             potential_words = root.find_words(random_word, word_len)
 
     word = random.choice(potential_words)
-
     i = 0
+    print(indices)
     while len(word) != 0:
         x, y = indices[i]
         grid[x][y] = word[0]
@@ -65,4 +65,3 @@ def make_crossword(grid):
 
 x = make_crossword(grid)
 print(x)
-
