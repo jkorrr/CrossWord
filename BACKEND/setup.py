@@ -55,6 +55,7 @@ def find_longest_empty_length(grid):
             all_empty_indices.append(x)
             curr_len = 0
             i += 1
+            j = 0
         
         max_row_len = max(max_row_lens)
         row_idx = max_row_lens.index(max_row_len)

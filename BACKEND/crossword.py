@@ -65,3 +65,9 @@ def make_crossword(grid):
 
 x = make_crossword(grid)
 print(x)
+'''
+word_len, idx, indices = find_longest_empty_length(grid)
+print(word_len)
+print(idx)
+print(indices)
+'''
