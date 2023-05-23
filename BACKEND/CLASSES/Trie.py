@@ -48,15 +48,26 @@ class Trie(object):
     
     def find_words(self, available_letters, length):
         r = self.root 
-        def dfs(node, word, remaining_length):
+        matching = []
+        def dfs(node, word, remaining_length, matching):
             if remaining_length == 0:
                 if node.end:
                     matching.append(word)
                 return 
             for char, child in node.children.items():
                 if char == '*' or char == available_letters[length - remaining_length - 1]:
-                    dfs(child, word + char, remaining_length - 1)       
-        matching = []
-        dfs(r, '', length)
+                    dfs(child, word + char, remaining_length - 1, matching)       
+        dfs(r, '', length, matching)
         return matching
 
+dictionary = ['python', 'java', 'ruby', 'perl', 'swift', 'rust']
+available_letters = ['*', '*', 't', '*', 'o', 'n']
+word_length = 6
+r = Trie()
+
+for word in dictionary:
+    r.insert(word)
+
+
+matching_words = r.find_words(available_letters, word_length)
+print(matching_words)
