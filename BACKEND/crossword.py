@@ -47,21 +47,23 @@ def make_crossword(grid):
     random_word = generate_random_letters(word_len)
 
     potential_words = root.find_words(random_word, word_len)
-
+    
     if len(potential_words) == 0:
         while len(potential_words) == 0:
             random_word = generate_random_letters(word_len)
             potential_words = root.find_words(random_word, word_len)
+    
 
     word = random.choice(potential_words)
     i = 0
+    x = word
     print(indices)
     while len(word) != 0:
         x, y = indices[i]
         grid[x][y] = word[0]
         word = word[1:]
         i += 1
-    return grid
+    return word
 
 x = make_crossword(grid)
 print(x)
