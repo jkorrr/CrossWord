@@ -28,7 +28,7 @@ for word in words:
 def generate_random_letters(length):
     word = []
     while length >= 0:
-        i = random.randint(0, 50)
+        i = random.randint(0, 75)
         if i > 25:
             word.append("*")
         else:
