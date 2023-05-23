@@ -36,7 +36,6 @@ def find_longest_empty_length(grid):
     grid_t = np.transpose(grid)
 
     def find_empty_row(grid):
-        max_len = len(grid)
         curr_len = 0
         all_empty_indices = []
         max_row_lens = []
@@ -45,7 +44,7 @@ def find_longest_empty_length(grid):
         for row in grid:
             x = []
             for cell in row:
-                if cell == "BLANK":
+                if cell == "":
                     curr_len += 1
                     x.append([i, j])
                 else:
