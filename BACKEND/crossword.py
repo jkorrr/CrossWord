@@ -61,11 +61,12 @@ def is_valid_grid(grid):
         words = []
         for row in grid:
             word = ""
-        for cell in row:
-            if cell in ALPHABET:
-                word += cell
-            elif cell == "BLANK":
-                word = ""
+            for cell in row:
+                if cell in ALPHABET:
+                    word += cell
+                elif cell == "BLANK":
+                    word = ""
+            words.append(word)
         return words
     
     total_words = find_words(grid) + find_words(grid_t)
@@ -76,6 +77,11 @@ def is_valid_grid(grid):
     return True 
 
 def make_crossword(grid):
+    words_used = []
     grid_t = np.transpose(grid)
+
     word, grid = add_first_word(grid)
+    words_used.append(word)
+    
+    
 
