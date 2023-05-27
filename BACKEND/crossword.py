@@ -55,33 +55,13 @@ def check_valid_word(grid, indices):
         return True
     return False
 
-def is_valid_grid(grid):
-    grid_t = np.transpose(grid)
-    def find_words(grid):
-        words = []
-        for row in grid:
-            word = ""
-            for cell in row:
-                if cell in ALPHABET:
-                    word += cell
-                elif cell == "BLANK":
-                    word = ""
-            words.append(word)
-        return words
+def generate_crossword(grid, words):
     
-    total_words = find_words(grid) + find_words(grid_t)
+    def backtrack(row, col):
+        word, grid = add_first_word(grid)
+        words_used.append(word)
 
-    for word in total_words:
-        if word not in dictionary:
-            return False
-    return True 
 
-def make_crossword(grid):
-    words_used = []
-    grid_t = np.transpose(grid)
-
-    word, grid = add_first_word(grid)
-    words_used.append(word)
     
-    
+
 
