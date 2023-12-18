@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from crossword import ALPHABET
+from crossword import *
 
 
 def out_of_bounds(grid, row, col):
@@ -68,3 +69,14 @@ def can_place_word(grid, word, row, col, direction, dictionary):
     
 
 
+def generate_crossword(rows, cols):
+    
+    def backtrack(row, col):
+        words_used = []
+        word, grid = add_first_word(grid)
+        words_used.append(word)
+        if row == rows:
+            return True
+        if col == cols:
+            return backtrack(row + 1, 0)
+        
