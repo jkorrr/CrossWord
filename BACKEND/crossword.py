@@ -55,11 +55,7 @@ def check_valid_word(grid, indices):
         return True
     return False
 
-def generate_crossword(grid, words):
-    
-    def backtrack(row, col):
-        word, grid = add_first_word(grid)
-        words_used.append(word)
+
 
 
     
